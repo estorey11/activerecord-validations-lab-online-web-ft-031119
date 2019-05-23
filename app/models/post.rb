@@ -11,7 +11,9 @@ class Post < ActiveRecord::Base
     end
     
     if title
-      title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i)
+      if title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i)
+        false 
+      end
     else 
       false
     end
