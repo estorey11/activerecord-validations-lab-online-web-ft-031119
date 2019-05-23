@@ -8,6 +8,7 @@ class Post < ActiveRecord::Base
   def clickbaity?
     if title
       (title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i))
+      binding.pry
     else 
       false
     end
