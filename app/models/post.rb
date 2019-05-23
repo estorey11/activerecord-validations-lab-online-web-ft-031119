@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
       if title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i)
         true
       else
-        
+        errors.add(:title, "must be clickbait")
       end
     else 
       false
