@@ -6,13 +6,12 @@ class Post < ActiveRecord::Base
   validate :clickbaity?
 
   def clickbaity?
-    #if title=="True Facts"
-     # binding.pry
-    #end
+    if title=="True Facts"
+      binding.pry
+    end
     
     if title
       title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i)
-      end
     else 
       false
     end
