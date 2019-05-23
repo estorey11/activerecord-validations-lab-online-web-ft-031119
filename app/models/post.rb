@@ -5,18 +5,7 @@ class Post < ActiveRecord::Base
   validates :category, inclusion: { in: %w(Fiction Non-Fiction)}
   validate :clickbaity?
 
-  CLICKBAIT_PATTERNS = [
-    /Won't Believe/i,
-    /Secret/i,
-    /Top [0-9]*/i,
-    /Guess/i
-  ]
-
   def clickbaity?
-    if CLICKBAIT_PATTERNS.none? { |pat| pat.match title }
-      errors.add(:title, "must be clickbait")
-    end
-    
-    title.match(/Won't Believe/i) || 
+    title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i)
   end
 end
