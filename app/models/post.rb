@@ -6,6 +6,6 @@ class Post < ActiveRecord::Base
   validate :clickbaity?
 
   def clickbaity?
-    @title.match(/Won't Believe/i) || @title.match(/Secret/i) || @title.match(/Top [0-9]*/i) || @title.match(/Guess/i)
+    if title && (title.match(/Won't Believe/i) || title.match(/Secret/i) || title.match(/Top [0-9]*/i) || title.match(/Guess/i))
   end
 end
